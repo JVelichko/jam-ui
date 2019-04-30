@@ -1,0 +1,70 @@
+@import "../common/vars/color";
+
+jam-checkbox {
+  display: inline-block;
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 28px;
+  color: $color-text-grey;
+  user-select: none;
+  transition: color 0.15s ease-out;
+
+  &:not(.disabled):hover {
+    color: $color-text-black;
+    cursor: pointer;
+
+    .checkmark {
+      border-color: $color-primary;
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+  }
+}
+
+.checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  border: 2px solid $color-grey;
+  border-radius: 2px;
+  transition: color 0.15s ease-out, border-color 0.15s ease-out, background-color 0.15s ease-out;
+}
+
+.icon {
+  visibility: hidden;
+  font-size: 12px;
+}
+
+.checked {
+  .checkbox {
+    color: $color-text-black;
+  }
+
+  .checkmark {
+    border-color: $color-primary;
+    background-color: $color-primary;
+  }
+
+  .icon {
+    visibility: visible;
+    color: $color-text-white;
+  }
+}
+
+.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <link rel="stylesheet" href="/build/vision-ui.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>UI Components</title>
+  <script src="/build/vision-ui.js"></script>
+</head>
+
+<body>
+  <vui-reset></vui-reset>
+  <div class="wrapper">
+    <section class="section">
+      <h2 class="title">vui select</h2>
+      <div class="section-row align-start">
+        <div class="section-cell-auto">
+          <vui-select id="test" placeholder="Placeholder" default-first selected="22" status="invalid" message="hi">
+            <div slot="options">
+              <vui-option value="15">All</vui-option>
+              <vui-option value="List item 1">List item 1</vui-option>
+              <vui-option value="List item 2">List item 2</vui-option>
+              <vui-option value="List item 3">List item 3</vui-option>
+              <vui-option value="List item 4">List item 4</vui-option>
+            </div>
+          </vui-select>
+        </div>
+        <script>
+          const select = document.getElementById('test');
+          const first = select.firstElementChild;
+          const items = [];
+          for (let i = 0; i < 5; i++) {
+            const item = document.createElement('vui-option');
+            item.textContent = item.value = i;
+            items.push(item)
+          }
+          setTimeout(() => {
+            items.forEach(it => first.insertBefore(it, first.firstElementChild))
+          }, 5000)
+          select.addEventListener('vuiInit', e => {
+            console.log('init', e.target)
+          });
+          select.addEventListener('vuiSelect', e => {
+            console.log('select', e.detail)
+          });
+        </script>
+
+        <div class="section-cell-auto">
+          <vui-select id="test" placeholder="Placeholder" selected="List item 1" status="warning" message="hi">
+            <div slot="options">
+              <vui-option value="15">All</vui-option>
+              <vui-option value="List item 1">List item 1</vui-option>
+              <vui-option value="List item 2">List item 2</vui-option>
+              <vui-option value="List item 3">List item 3</vui-option>
+              <vui-option value="List item 4">List item 4</vui-option>
+            </div>
+          </vui-select>
+        </div>
+      </div>
+      <div class="section-row align-start">
+        <div class="section-cell-auto">
+          <vui-select id="test_multi" placeholder="Placeholder" multiple status="warning" message="hi">
+            <div slot="options">
+              <vui-option value="15">All</vui-option>
+              <vui-option value="List item 1">List item 1</vui-option>
+              <vui-option value="List item 2">List item 2</vui-option>
+              <vui-option value="List item 3">List item 3</vui-option>
+              <vui-option value="List item 4">List item 4 long text</vui-option>
+              <vui-option value="***-8888" justify-content-between>Master 8888</vui-option>
+              <vui-option value="***-888" justify-content-between>Just text</vui-option>
+              <vui-option value="***-5555" justify-content-between>visa 555</vui-option>
+              <vui-option value="***-1111" justify-content-between>Mir 1111</vui-option>
+              <vui-option value="***-0000" justify-content-between>Jack 0000</vui-option>
+            </div>
+          </vui-select>
+        </div>
+        <script>
+          const select_multi = document.getElementById('test_multi');
+          const selected = ['List item 4', 'List item 2'];
+          select_multi.selected = selected;
+          select_multi.addEventListener('vuiSelect', e => {
+            console.log('select select_multi ', e.detail)
+          });
+        </script>
+
+        <div class="section-cell-auto">
+          <vui-select placeholder="Placeholder">
+            <div slot="options">
+              <vui-option value="15">All</vui-option>
+              <vui-option value="List item 1">List item 1</vui-option>
+              <vui-option value="List item 2">List item 2</vui-option>
+              <vui-option value="List item 3">List item 3</vui-option>
+              <vui-option value="List item 4">List item 4</vui-option>
+            </div>
+          </vui-select>
+        </div>
+      </div>
+      <div class="section-row align-start">
+        <div class="section-cell-auto">
+          <vui-select placeholder="Select payment method" default-first selected="***-5555">
+            <div slot="options">
+              <vui-option value="***-8888" justify-content-between>
+                <span>No vui-icon</span>
+                <span>Master 8888</span>
+              </vui-option>
+              <vui-option value="***-888" justify-content-between>
+                Just text
+              </vui-option>
+              <vui-option value="***-5555" justify-content-between>
+                <img src="/../assets/icons/gold-status.svg" />
+                <span>Visa 5555</span>
+              </vui-option>
+              <vui-option value="***-1111" justify-content-between>
+                <img src="/../assets/icons/demo-status.svg" />
+                <span>Mir 1111</span>
+              </vui-option>
+              <vui-option value="***-0000" justify-content-between>
+                <img src="/../assets/icons/standart-status.svg" />
+                <span>Jack 0000</span>
+              </vui-option>
+            </div>
+          </vui-select>
+        </div>
+
+        <div class="section-cell-auto">
+          <vui-select placeholder="Select payment method">
+            <div slot="options">
+              <vui-option value="***-8888" justify-content-between>
+                <img src="/../assets/icons/standart-status.svg" />
+                <span>Master 8888</span>
+              </vui-option>
+              <vui-option value="***-5555" justify-content-between>
+                <img src="/../assets/icons/standart-status.svg" />
+                <span>Visa 5555</span>
+              </vui-option>
+              <vui-option value="***-1111" justify-content-between>
+                <img src="/../assets/icons/standart-status.svg" />
+                <span>Mir 1111</span>
+              </vui-option>
+              <vui-option value="***-0000" justify-content-between>
+                <img src="/../assets/icons/standart-status.svg" />
+                <span>Jack 0000</span>
+              </vui-option>
+            </div>
+          </vui-select>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

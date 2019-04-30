@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <link href="/build/jam-ui.css" rel="stylesheet">
+  <title>Stencil Component Starter</title>
+  <script src="/build/jam-ui.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <section class="section">
+      <h2 class="heading">jam-checkbox component</h2>
+      <div class="row">
+        <div class="column">
+          <jam-checkbox label="Apple" value="checked test" checked></jam-checkbox>
+          <jam-checkbox label="Orange"></jam-checkbox>
+          <jam-checkbox label="Cucumber"></jam-checkbox>
+        </div>
+        <div class="column">
+          <jam-checkbox label="checkbox checked and disabled" value="checked test" checked disabled></jam-checkbox>
+          <jam-checkbox label="checkbox disabled" value="checked test" disabled></jam-checkbox>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="heading">jam-select component</h2>
+      <div class="row">
+        <div class="column-auto">
+          <jam-select id="test" placeholder="Placeholder" default-first>
+            <div slot="options">
+              <jam-option value="all">All</jam-option>
+              <jam-option value="item 1">List item 1</jam-option>
+              <jam-option value="item 2">List item 2</jam-option>
+              <jam-option value="item 3">List item 3</jam-option>
+              <jam-option value="item 4">List item 4</jam-option>
+            </div>
+          </jam-select>
+        </div>
+        <div class="column-auto">
+            <jam-select id="test" placeholder="Select multiple tags" multiple default-first>
+              <div slot="options">
+                <jam-option value="item 0">Item 0</jam-option>
+                <jam-option value="item 1">List item 1</jam-option>
+                <jam-option value="item 2">List item 2</jam-option>
+                <jam-option value="item 3">List item 3</jam-option>
+                <jam-option value="item 4">List item 4</jam-option>
+              </div>
+            </jam-select>
+          </div>
+      </div>
+    </section>
+  </div>
+
+</body>
+
+</html>
